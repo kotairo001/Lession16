@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+</head>
+
+<body>
+    <div id="game"></div>
+    <div id="game1"></div>
+    <!-- <img src="/Lession15/img/susanosama.webp" alt=""> -->
+    <script>
+        function Hero(image, top, left, size) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.getHeroElement = function () {
+                return '<img width="' + this.size + '"' +
+                    ' height="' + this.size + '"' +
+                    ' src="' + this.image + '"' +
+                    ' style="top: ' + this.top + 'px;left: ' + this.left + 'px; position: absolute; " />';
+            }
+            this.moveRight = function () {
+                // this.top += 10;
+                this.left += 10;
+                console.log('ok: ' + this.left);
+            }
+            // this.moveAcross = function () {
+            //     // this.top+=20;
+            //     this.left -= 20;
+            //     console.log('ok: ' + this.left);
+            // }
+        }
+        var shiba = new Hero("https://media0.giphy.com/media/Qs6R02ODbN9bIpOOl8/giphy.gif?cid=6c09b9522d04b4ea32c96a933a71c8f783b0ec7f94fdf0bd&rid=giphy.gif&ct=s", 30, 30, 200);
+        var cat = new Hero("https://i.pinimg.com/originals/80/5d/92/805d9290bf80860153c6804cc0ed2d3a.gif", 30, 600, 200);
+        function start() {
+            if (shiba.left < window.innerWidth - shiba.size) {
+                shiba.moveRight();
+            }
+            document.getElementById('game').innerHTML = shiba.getHeroElement();
+            // setTimeout(start, 500)
+            if (cat.left < window.innerWidth - cat.size){
+                cat.moveRight();
+            }
+            document.getElementById('game1').innerHTML = cat.getHeroElement();
+            setTimeout(start, 500)
+        }
+        
+        // function start1() {
+
+        // }
+
+        start();
+        // start1();
+
+    </script>
+</body>
+
+</html>
