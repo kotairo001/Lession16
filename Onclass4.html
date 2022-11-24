@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Rat = function (name,weight,speed,status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = function() {
+                if (this.weight==0) {
+                    status = false;
+                    return status;
+                }
+            }
+            this.makeNoise = function() {
+                return "Squeaking, Squeaking"
+            }
+
+        };
+        let Cat = function (name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.catchRat = function(rat) {
+                this.rat = rat;
+                if (this.rat.weight>0 && this.speed > this.rat.speed) {
+                    return "Caught a rat";
+                }
+            }
+            this.eatRat = function(rat) {
+                this.rat = rat
+                if (this.rat.weight>0) {
+                    this.rat.weight--
+                    this.weight++;
+                    return "Eating a mouse" + ". Cat's weight is " + this.weight + ". Rat's weight is " + this.rat.weight;
+                } else if (this.rat.weight==0) {
+                    return this.name + " has finished eating " + this.rat.name;
+                }
+            }
+            this.makeNoise = function() {
+                return "Miao, Miao"
+            }
+        };
+        let rat = new Rat("Rat",10,50,true);
+        console.log(rat.makeNoise());
+        let cat = new Cat ("Honey",15,60);
+        console.log(cat.makeNoise());
+        console.log(cat.catchRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+        console.log(cat.eatRat(rat));
+
+        
+
+    </script>
+</body>
+</html>
