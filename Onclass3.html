@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let SwitchButton = function (status,) {
+            this.status = status;
+            this.connectToLamp = function () {
+                this.status = true;
+                return this.status;
+            }
+            this.switchOff = function (electriclamp) {
+                this.electricLamp = electriclamp;
+                return "Electric Lamp is " +  this.electricLamp.turnOff();
+            }
+            this.switchOn = function (electriclamp) {
+                this.electricLamp = electriclamp;
+                return "Electric Lamp is " + this.electricLamp.turnOn();
+            }
+
+        }
+        let ElectricLamp = function (status) {
+            this.status = status;
+        //     this.electricLamp = function () {
+        //     this.switchbutton = switchbutton;
+        //         this.status = true;
+        //         return this.status;
+        // }
+            this.turnOn = function (switchbutton)   {
+                this.status = "On";
+                return this.status;
+            }
+            this.turnOff = function (switchbutton)   {
+                this.status = "Off";
+                return this.status;
+            };
+        }
+        let switchbutton = new SwitchButton (false);
+        let electricLamp = new ElectricLamp ("Off");
+        console.log(switchbutton.connectToLamp());
+        // console.log(electricLamp.electricLamp());
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOff(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+        console.log(switchbutton.switchOn(electricLamp));
+
+
+
+    </script>
+</body>
+
+</html>
