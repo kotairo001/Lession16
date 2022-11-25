@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Remote = function (button, volumn) {
+            this.button = button;
+            this.volumn = volumn;
+            this.changeChanel = function () {
+                return "Chanel has been changed to " + this.button;
+            }
+            this.changeVolumn = function () {
+                return "Volumn has been changed to " +  this.volumn;
+            }
+            this.turnOff = function() {
+                return "TV has been turned off";
+            }
+
+        }
+        let TiVi = function(chanel,volumn,status) {
+            this.currentChanel = function() {
+                return "This " + chanel + " chanel is about animals around the world."
+            }
+            this.currentVolumn = volumn;
+            this.currentStatus = function(){
+                if (status==true){
+                    return "TV is on."
+                } else {return "TV is off."}
+            };
+            this.changeChanel = function(remote,button){
+                this.remote = remote;
+                this.remote.button = button;
+                return this.remote.changeChanel();
+            }
+            this.changeVolumn = function (remote,volumn) {
+                this.remote = remote;
+                this.remote.volumn = volumn;
+                return this.remote.changeVolumn();
+            }
+            this.turnOff = function(remote) {
+                this.remote = remote;
+                this.status = false;
+                return this.remote.turnOff();
+
+            }
+        }
+        let remote = new Remote(Math.floor(Math.random()*10),Math.floor(Math.random()*50))
+        // console.log(remote.button)
+        let tv = new TiVi(7,16,true);
+        console.log(tv.currentStatus())
+        console.log(tv.currentChanel()); 
+        console.log(tv.changeChanel(remote,5)); 
+        console.log(tv.changeVolumn(remote,10)); 
+        console.log(tv.turnOff(remote)); 
+        
+
+    </script>
+</body>
+
+</html>
